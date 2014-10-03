@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <display-name></display-name>
+  <servlet>
+    <description>用户先访问授权页，然后导入首页</description>
+    <display-name>授权页</display-name>
+    <servlet-name>AuthServlet</servlet-name>
+    <servlet-class>servlet.AuthServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>用户先访问授权页，然后导入首页</description>
+    <display-name>授权页</display-name>
+    <servlet-name>TagcloudServlet</servlet-name>
+    <servlet-class>servlet.TagcloudServlet</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>AuthServlet</servlet-name>
+    <url-pattern>/AuthServlet.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TagcloudServlet</servlet-name>
+    <url-pattern>/TagcloudServlet.do</url-pattern>
+  </servlet-mapping>	
+  <welcome-file-list>
+    <welcome-file>/AuthServlet.do</welcome-file>
+  </welcome-file-list>
+</web-app>

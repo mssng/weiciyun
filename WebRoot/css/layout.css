@@ -1,0 +1,61 @@
+body
+{margin:0 auto;
+ font-size:12px;
+ font-family:Verdana;
+ line-height:1.5;
+}
+ul
+{
+ list-style:none;
+ -webkit-padding-start: 0px;
+}
+img
+{
+ border:0px;
+}
+a
+{
+ color:#05a;
+ text-decoration:none;
+}
+a:hover{color:#f00;}
+
+/*定义container的样式*/
+#container
+{
+ width:960px;
+ margin:0 auto;
+}
+/*定义header的样式*/
+#header { height:155px;}
+
+ 
+
+/*定义main的样式*/
+#maincontent { margin-bottom:8px; overflow: auto; zoom:1;height:500px;border:2px solid #0066FF;}
+#main { float:left; width:664px; height:480px; background:#FFFFFF;}
+#side { float:right; width:270px; height:480px; background:#FFFFFF;}
+#main_produce{padding-top:38px;padding-left:20px;}
+#firsta{padding-top:180px;padding-left:56px;}
+
+#btn{padding-top:50px;padding-left:10px;width:200px;}
+.imagekuang{background-image:url(../images/btn.png);width:250px;height:460px;}
+#choose{padding-top:80px;padding-left:80px;}
+
+
+/*定义footer的样式*/
+#footer { height:50px;}
+
+/*定义导航栏样式*/
+#nav {height:40px; border-top:3px solid #0066FF; border-bottom:1px solid #000099;border-right:1px solid #000099;}
+.nav_main {height:36px;overflow:hidden;}
+.nav_main ul li {display:block; height:40px;padding-left:0px;float:left;font-size:19px;font-weight:200;border-left:1px solid #000099;}
+.nav_main ul li a {float:left;display:block;height:26px;line-height:35px;color:#333333;font-family: "微软雅黑";}
+.nav_main ul li a span{display:block; display: block; height: 40px; width: 120px; line-height: 30px; text-align: center; background:#FFFFFF;}
+.nav_main ul li a span:hover {text-decoration: none; background: #6F6FFF; }
+.nav_main ul li a span:active {color: #000099;}
+
+/*空格填充*/
+#fill{
+
+height:1px;}
