@@ -8,44 +8,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!--在页面中引入wb.js-->5
+<!--在页面中引入wb.js-->
 <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=1106131078&debug=true" type="text/javascript" charset="utf-8"></script>
 <script src="js/d3.js"></script>
 <script src="js/d3.layout.cloud.js"></script>
 <script>
+
 function drawcloud(){
-	var canvas=document.getElementById("main");//云区域
+	
+	var canvas=document.getElementById("main_produce");//云区域
 	var myHeight = canvas.scrollHeight; //高度
 	var myWidth = canvas.scrollWidth; //宽度
-	var colors = [ "rgb(9, 147, 134)", "rgb(255, 171, 32)",
+	var colors = [ "rgb(9, 147, 134)", "rgb(255, 171, 32)",//自定义颜色
 				"rgb(97, 84, 255)" ];
 				
 	
 	alert("高度："+myHeight+" "+"宽度："+myWidth+" "+"颜色："+colors[0]);
 	
 	var fill = d3.scale.category20();
+	//消除图片
+	var x=document.getElementById("main_produce")  //查找元素
+	x.innerHTML="";    //改变内容
 
+  
   d3.layout.cloud().size([myWidth, myHeight])
       .words([
-        "Hello", "world", "normally", "you", "want", "more", "words",
-        "than", "this"].map(function(d) {
+        "我爱", "微词云", "南航", "NUAA", "新浪", "微博", "关键词",
+        "经济与管理学院", "测试"].map(function(d) {
         return {text: d, size: 10 + Math.random() * 90};
       }))
-      .padding(5)
+      .padding(10)
       .rotate(function() { return ~~(Math.random() * 2) * 90; })
       .font("Impact")
       .fontSize(function(d) { return d.size; })
       .on("end", draw)
       .start();
-	}
+      
+      //设置背景色
+      d3.select("#main svg").attr("style","background-color:rgb(153,217,232)");
+	
 	
 	
 	  function draw(words) {
+	  
+	  if (d3.selectAll("#main svg")[0].length != 0) {
+				d3.select("#main").html("");
+			}
+			
     d3.select("#main").append("svg")
         .attr("width", myWidth)
         .attr("height", myHeight)
       .append("g")
-        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+        .attr("transform", "translate(" + myWidth / 2 + "," + myHeight / 2 + ")")
       .selectAll("text")
         .data(words)
       .enter().append("text")
@@ -57,7 +71,12 @@ function drawcloud(){
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
         .text(function(d) { return d.text; });
+        
   }
+  
+}
+  
+ 
 </script>
 
 <title>微词云主页</title>
@@ -148,7 +167,8 @@ function drawcloud(){
 						if(request.getParameter("code")==null){
 						out.print("未取得code");
 					}else{
-						out.print(request.getParameter("code"));
+						out.print("code:"+request.getParameter("code"));
+						//放入session对象中
 						session.setAttribute("code", request.getParameter("code"));
 						}
 					%></ul>
